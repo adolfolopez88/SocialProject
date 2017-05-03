@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<ul>
+		{% for school in object_list %}
+			<li>
+				{{school.name}}|
+				<img src="{{school.image.url}}">
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
