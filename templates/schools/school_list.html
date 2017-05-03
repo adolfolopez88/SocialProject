@@ -5,7 +5,9 @@
 		{% for school in object_list %}
 			<li>
 				{{school.name}}|
-				<img src="{{school.image.url}}">
+				<a href="{% url 'courses:course_list' %}?school={{school.id}}">
+					<img src="{{school.image.url}}">
+				</a>
 			</li>
 		{% endfor %}
 	</ul>
