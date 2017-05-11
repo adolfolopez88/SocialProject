@@ -165,3 +165,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10
+}

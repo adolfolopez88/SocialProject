@@ -1,20 +1,20 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from .models import School
 
 class SchoolList(ListView):
 	model = School
 
-#Rest Framework
+class SchoolDetail(DetailView):
+	model = School
+
 from rest_framework import generics
 from .serializers import SchoolSerializer
+from rest_framework import viewsets
 
-class SchoolListApi(generics.ListCreateAPIView):
+class SchoolViewSet(viewsets.ModelViewSet):
 	queryset = School.objects.all()
 	serializer_class = SchoolSerializer
 
-	def get_object(self):
-		queryset = self.get_queryset()
-		obj = get_object_or_404(queryset, pk=self.kwargs['pk'],)
-		return obj
+    #permission_classes = (permissions.IsAuthenticatedOrReadOnly)
